@@ -12,6 +12,7 @@ let aliasKeys = Object.keys(aliasConfig)
 for(let i = 0; i < aliasKeys.length; i++){
     let aliasKey = aliasKeys[i].replace('/*', '')
     let aliasPath = aliasConfig[aliasKeys[i]][0].replace('/*', '')
+    aliasPath = aliasPath.replace('.', process.cwd())
     aliases[aliasKey] = aliasPath
 }
 
