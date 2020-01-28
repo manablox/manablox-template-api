@@ -14,6 +14,10 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "manablox-service-express": "^1.4.1",
-    "manablox-service-mongodb": "../manablox-service-mongodb"
+    "manablox-service-graphql": "^1.3.0",
+    "manablox-service-mongodb": "^1.3.1",
+    "mongodb": "^3.5.2",
+    "@graphql-modules/core": "^0.7.14",
+    "apollo-server-express": "^2.9.16"
   }
 }
