@@ -1,8 +1,77 @@
+scalar JSON
+
 type Query {
-    Users: [User]
+    Users(
+        filter: JSON
+        sort: JSON
+        limit: Int
+        skip: Int
+    ): [User]
 }
+
+
+
+type Mutation {
+    CreateUser(data: UserInput) : User
+    UpdateUser(id: ID data: UserInput) : User
+    DeleteUser(id: ID) : Boolean
+}
+
+
+
+
+
+
 
 type User {
     _id: ID
     username: String
+    personal: UserPersonal
+    contact: UserContact
+}
+
+input UserInput {
+    username: String
+    personal: UserPersonalInput
+    contact: UserContactInput
+}
+
+
+
+
+
+type UserPersonal {
+    gender: String
+    firstname: String
+    lastname: String
+}
+
+input UserPersonalInput {
+    gender: String
+    firstname: String
+    lastname: String
+}
+
+
+
+
+
+type UserContact {
+    email: String
+    phone: String
+    street: String
+    streetNumber: String
+    zip: String
+    city: String
+    country: String
+}
+
+input UserContactInput {
+    email: String
+    phone: String
+    street: String
+    streetNumber: String
+    zip: String
+    city: String
+    country: String
 }

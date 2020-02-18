@@ -1,13 +1,9 @@
 import ExpressService from 'manablox-service-express'
-import MongoDBService from 'manablox-service-mongodb'
 import GraphQLService from 'manablox-service-graphql'
 
 import Router from 'manablox-service-express/router'
-import GraphRouter from 'manablox-service-graphql/router'
-
 
 import serverConfig from '~~/config/server'
-import databaseConfig from '~~/config/database'
 import graphqlConfig from '~~/config/graphql'
 
 // initialize express server
@@ -30,16 +26,8 @@ graphs = graphs.filter((graph) => { return graph.module.autoload == true })
 
 // async server start
 const StartServer = async () => {
-    // you can do tasks like database connection here
-    const database = new MongoDBService(databaseConfig)
-    const graphql = new GraphQLService({
-        ...graphqlConfig,
-        server,
-        graphs
-    })
-
+    const graphql = new GraphQLService({ ...graphqlConfig, server, graphs })
     
-    // starting the server
     graphql.Start()
     server.Start()
 }
