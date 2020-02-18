@@ -26,7 +26,7 @@ export default class DataProvider {
     }
 
     async UpdateById(...params){
-        return this.database.UpdateById(this.onfig.collection, ...params)
+        return this.database.UpdateById(this.config.collection, ...params)
     }
 
     async Update(params){
